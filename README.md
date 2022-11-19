@@ -50,5 +50,52 @@
 
 ![image](https://user-images.githubusercontent.com/95981205/202834496-dc020e08-58e5-4b30-be7a-70b81f2bedf3.png)
 
-Открются поля для настройки: Addresses, Gateway, DNS servers. Переходим в секцию "Address" и указываем IP address (ДАННЫЙ В ТАБЛИЦЕ В КОНЦЕ ЗАДАНИЯ). В качестве gateway указывается IP address ***МАРШРУТИЗАТОРА*** этого сектора **(Т.е. для WEB-L шлюзом будет RTR-L, для WEB-R - RTR-R, У ISP НЕТ ШЛЮЗОВ!!!!!!)**. 
+Открются поля для настройки: Addresses, Gateway, DNS servers. Переходим в секцию "Address", нажимаем "add" и указываем IP address (ДАННЫЙ В ТАБЛИЦЕ В КОНЦЕ ЗАДАНИЯ). 
+
+В качестве gateway указывается IP address ***МАРШРУТИЗАТОРА*** этого сектора **(Т.е. для WEB-L шлюзом будет RTR-L, для WEB-R - RTR-R, У ISP НЕТ GATEWAY!!!!!!)**. IP для gateway должен совпадать по подсети с Ip адресом нашей ВМ. 
+
+В качестве DNS сервера на WEB-L и WEB-R указывается IP адрес SRV (**На ISP не должно быть DNS Servers**).
+
+![image](https://user-images.githubusercontent.com/95981205/202835488-48675b81-09ab-4cc1-8707-62e758f8bb3e.png)
+
+Нажимаем "OK", выходим в командную строку и вводим команду перезагрузки "reboot". После перезагрузки сразу будет видно изменённый hostname:
+
+![image](https://user-images.githubusercontent.com/95981205/202835550-12a75920-aa39-4b84-b32e-dd90906b09bd.png)
+
+Для проверки настройки IP адреса вводим команду "ip a" в командную строку. В выводе будет видно интерфейс и назначенный ему IP адрес с маской подсети.
+
+![image](https://user-images.githubusercontent.com/95981205/202835582-617df8c5-826b-40a8-965f-aacb8c18b79f.png)
+
+Остальные ВМ на базе Linux настраиваются аналогичным способом.
+
+Настройка hostname и IP адреса на SRV. 
+
+Перед настройкой данных параметров необходимо отключить Firewall, чтобы наш траффик мог без ограничений попадать на сервер. Для этого нажимаем нажимаем на "Пуск" в нижней левой части экрана и открываем "Windows Security".
+
+![image](https://user-images.githubusercontent.com/95981205/202835745-7d437fe2-80c4-4700-b1bf-0cf5bb83b480.png)
+
+В нем открываем раздел "Firewall & network protection" и переходим в пункт "Advanced settings".
+
+![image](https://user-images.githubusercontent.com/95981205/202835787-3c85f764-46d4-4612-aaeb-fc6398700452.png)
+![image](https://user-images.githubusercontent.com/95981205/202835802-76de060e-1217-4e24-80db-85de686a5b9e.png)
+
+Откроется меню расширенных настроек Firewall. Нажимаем ПКМ на "Inbound Rules", дальше "New Rule".
+
+![image](https://user-images.githubusercontent.com/95981205/202835856-cdbd2222-39f9-426e-b232-19b0123dfb6e.png)
+
+Выбираем "Custom" и потом сразу переходим в раздел "Name".
+
+![image](https://user-images.githubusercontent.com/95981205/202835972-b11628d7-7cf1-41c2-8512-bfc0b0191909.png)
+
+Пишем имя "ICMP" и нажимаем "Finish".
+
+![image](https://user-images.githubusercontent.com/95981205/202835958-45e3840a-5728-4a74-b10e-1ac43ff6f7b6.png)
+
+Для настройки SRV нажимаем ПКМ на "Пуск" в нижней левой части экрана и нажимаем на "Run", в открывшееся окно пишем "sconfig" и открываем его.
+
+![image](https://user-images.githubusercontent.com/95981205/202835642-e7dabb2a-9850-489c-a9f9-7d7d2801a733.png)
+![image](https://user-images.githubusercontent.com/95981205/202835651-ee040086-9de3-4d2b-8900-fc5b3e5dea58.png)
+
+
+
 
