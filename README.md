@@ -50,4 +50,5 @@
 
 ![image](https://user-images.githubusercontent.com/95981205/202834496-dc020e08-58e5-4b30-be7a-70b81f2bedf3.png)
 
-Открются поля для настройки: Addresses, Gateway, DNS servers. Переходим в секцию "Address" и указываем IP address (ДАННЫЙ В ТАБЛИЦЕ В КОНЦЕ ЗАДАНИЯ).
+Открются поля для настройки: Addresses, Gateway, DNS servers. Переходим в секцию "Address" и указываем IP address (ДАННЫЙ В ТАБЛИЦЕ В КОНЦЕ ЗАДАНИЯ). В качестве gateway указывается IP address ***МАРШРУТИЗАТОРА*** этого сектора **(Т.е. для WEB-L шлюзом будет RTR-L, для WEB-R - RTR-R, У ISP НЕТ ШЛЮЗОВ!!!!!!)**. 
+
